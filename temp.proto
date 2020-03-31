@@ -1,6 +1,13 @@
 syntax = "proto3";
 
-package thermostat;
+package temp;
+
+
+service TempService {
+	rpc SetTemp (SetTempRequest) returns (SetTempResponse) {}
+	rpc ViewTemp (ViewTempRequest) returns (ViewTempResponse) {}
+	rpc ChangeTemp (ChangeTempRequest) returns (ChangeTempResponse) {}
+}
 
 message Temp {
 	string id = 1;
@@ -29,11 +36,4 @@ message ChangeTempRequest {
 
 message ChangeTempResponse {
 	Temp temp = 1;
-}
-
-
-
-service ThermostatService {
-	rpc SetTemp (SetTempRequest) returns (SetTempResponse) {}
-	rpc ChangeTemp (ChangeTempRequest) returns (ChangeTempResponse) {}
 }

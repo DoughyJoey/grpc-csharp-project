@@ -1,11 +1,11 @@
 ﻿using Grpc.Core;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Thermostat;
+using Temp;
 
 namespace thermostat_client
 {
@@ -21,19 +21,32 @@ namespace thermostat_client
                     Console.WriteLine("The client connected successfully");
             });
 
-            var client = new ThermostatService.ThermostatServiceClient(channel);
-            var response = client.SetTemp(new SetTempRequest()
+            var client = new TempService.TempServiceClient(channel);
+            /* var response = client.SetTemp(new SetTempRequest()
             {
-                Temp = new Thermostat.Temp
+                Temp = new Temp.Temp()
                 {
-                    TempSetting = "22 celcius"
-
+                    TempSetting = "20 degrees"
                 }
             });
 
-            Console.WriteLine("The temperature was set using id: " + response.Temp.Id);
-            Console.WriteLine("Your temperature has now been set to: " + response.Temp.TempSetting);
+            Console.WriteLine("The temperature " + response.Temp.Id + " was created!");
+            Console.WriteLine("The temperature is now set to " + response.Temp.TempSetting + "!");*/
 
+            try
+            {
+                var response = client.ViewTemp(new ViewTempRequest()
+                {
+                    TempId = "5e8372829a5b3c385007b6af"
+                  //TempId = "5e8372829a5b3c385007b6ah"
+                });
+                Console.WriteLine(response.Temp.ToString());
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine(e.Status.Detail);
+            }
+            
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
         }

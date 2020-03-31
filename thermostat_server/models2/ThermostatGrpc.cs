@@ -14,8 +14,6 @@ namespace Thermostat {
 
     static readonly grpc::Marshaller<global::Thermostat.SetTempRequest> __Marshaller_thermostat_SetTempRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.SetTempRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Thermostat.SetTempResponse> __Marshaller_thermostat_SetTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.SetTempResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Thermostat.ViewTempRequest> __Marshaller_thermostat_ViewTempRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.ViewTempRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Thermostat.ViewTempResponse> __Marshaller_thermostat_ViewTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.ViewTempResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Thermostat.ChangeTempRequest> __Marshaller_thermostat_ChangeTempRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.ChangeTempRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Thermostat.ChangeTempResponse> __Marshaller_thermostat_ChangeTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Thermostat.ChangeTempResponse.Parser.ParseFrom);
 
@@ -25,13 +23,6 @@ namespace Thermostat {
         "SetTemp",
         __Marshaller_thermostat_SetTempRequest,
         __Marshaller_thermostat_SetTempResponse);
-
-    static readonly grpc::Method<global::Thermostat.ViewTempRequest, global::Thermostat.ViewTempResponse> __Method_ViewTemp = new grpc::Method<global::Thermostat.ViewTempRequest, global::Thermostat.ViewTempResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ViewTemp",
-        __Marshaller_thermostat_ViewTempRequest,
-        __Marshaller_thermostat_ViewTempResponse);
 
     static readonly grpc::Method<global::Thermostat.ChangeTempRequest, global::Thermostat.ChangeTempResponse> __Method_ChangeTemp = new grpc::Method<global::Thermostat.ChangeTempRequest, global::Thermostat.ChangeTempResponse>(
         grpc::MethodType.Unary,
@@ -51,11 +42,6 @@ namespace Thermostat {
     public abstract partial class ThermostatServiceBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Thermostat.SetTempResponse> SetTemp(global::Thermostat.SetTempRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Thermostat.ViewTempResponse> ViewTemp(global::Thermostat.ViewTempRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -106,22 +92,6 @@ namespace Thermostat {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SetTemp, null, options, request);
       }
-      public virtual global::Thermostat.ViewTempResponse ViewTemp(global::Thermostat.ViewTempRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ViewTemp(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Thermostat.ViewTempResponse ViewTemp(global::Thermostat.ViewTempRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ViewTemp, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Thermostat.ViewTempResponse> ViewTempAsync(global::Thermostat.ViewTempRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ViewTempAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Thermostat.ViewTempResponse> ViewTempAsync(global::Thermostat.ViewTempRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ViewTemp, null, options, request);
-      }
       public virtual global::Thermostat.ChangeTempResponse ChangeTemp(global::Thermostat.ChangeTempRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ChangeTemp(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -151,7 +121,6 @@ namespace Thermostat {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SetTemp, serviceImpl.SetTemp)
-          .AddMethod(__Method_ViewTemp, serviceImpl.ViewTemp)
           .AddMethod(__Method_ChangeTemp, serviceImpl.ChangeTemp).Build();
     }
 
@@ -162,7 +131,6 @@ namespace Thermostat {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ThermostatServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SetTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Thermostat.SetTempRequest, global::Thermostat.SetTempResponse>(serviceImpl.SetTemp));
-      serviceBinder.AddMethod(__Method_ViewTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Thermostat.ViewTempRequest, global::Thermostat.ViewTempResponse>(serviceImpl.ViewTemp));
       serviceBinder.AddMethod(__Method_ChangeTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Thermostat.ChangeTempRequest, global::Thermostat.ChangeTempResponse>(serviceImpl.ChangeTemp));
     }
 

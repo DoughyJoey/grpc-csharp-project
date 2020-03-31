@@ -6,17 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Thermostat;
-using static Thermostat.ThermostatService;
+using Temp;
+using static Temp.TempService;
 
 namespace thermostat_server
 {
-    public class ThermostatServiceImpl : ThermostatServiceBase
+    class TempServiceImpl : TempServiceBase
     {
-        private static MongoClient mongoClient = new MongoClient("mongodb://localhost:27017");
-        private static IMongoDatabase mongoDatabase = mongoClient.GetDatabase("thermostat_db");
-        private static IMongoCollection<BsonDocument> mongoCollection = mongoDatabase.GetCollection<BsonDocument>("temp");
 
+        private static MongoClient mongoClient = new MongoClient("mongodb://localhost:27017");
+        private static IMongoDatabase mongoDatabase = mongoClient.GetDatabase("temp_db");
+        private static IMongoCollection<BsonDocument> mongoCollection = mongoDatabase.GetCollection<BsonDocument>("temp");
         public override Task<SetTempResponse> SetTemp(SetTempRequest request, ServerCallContext context)
         {
             var temp = request.Temp;
@@ -32,6 +32,24 @@ namespace thermostat_server
             {
                 Temp = temp
             });
+        }
+
+        public override async Task<ViewTempResponse> ViewTemp(ViewTempRequest request, ServerCallContext context)
+        {
+            var tempId = request.TempId;
+
+            var filter = new FilterDefinitionBuilder<BsonDocument>().Eq("_id", new ObjectId(tempId));
+            var result = mongoCollection.Find(filter).FirstOrDefault();
+
+            if (result == null)
+                throw new RpcException(new Status(StatusCode.NotFound, "The temp id " + tempId + " wasn't found"));
+
+            Temp.Temp temp = new Temp.Temp()
+            {
+                TempSetting = result.GetValue("temp_setting").AsString
+            };
+
+            return new ViewTempResponse() { Temp = temp };
         }
     }
 }

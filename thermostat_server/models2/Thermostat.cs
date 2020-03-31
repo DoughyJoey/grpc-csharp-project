@@ -32,12 +32,11 @@ namespace Thermostat {
             "b25zZRIeCgR0ZW1wGAEgASgLMhAudGhlcm1vc3RhdC5UZW1wIjMKEUNoYW5n",
             "ZVRlbXBSZXF1ZXN0Eh4KBHRlbXAYASABKAsyEC50aGVybW9zdGF0LlRlbXAi",
             "NAoSQ2hhbmdlVGVtcFJlc3BvbnNlEh4KBHRlbXAYASABKAsyEC50aGVybW9z",
-            "dGF0LlRlbXAy8QEKEVRoZXJtb3N0YXRTZXJ2aWNlEkQKB1NldFRlbXASGi50",
+            "dGF0LlRlbXAyqAEKEVRoZXJtb3N0YXRTZXJ2aWNlEkQKB1NldFRlbXASGi50",
             "aGVybW9zdGF0LlNldFRlbXBSZXF1ZXN0GhsudGhlcm1vc3RhdC5TZXRUZW1w",
-            "UmVzcG9uc2UiABJHCghWaWV3VGVtcBIbLnRoZXJtb3N0YXQuVmlld1RlbXBS",
-            "ZXF1ZXN0GhwudGhlcm1vc3RhdC5WaWV3VGVtcFJlc3BvbnNlIgASTQoKQ2hh",
-            "bmdlVGVtcBIdLnRoZXJtb3N0YXQuQ2hhbmdlVGVtcFJlcXVlc3QaHi50aGVy",
-            "bW9zdGF0LkNoYW5nZVRlbXBSZXNwb25zZSIAYgZwcm90bzM="));
+            "UmVzcG9uc2UiABJNCgpDaGFuZ2VUZW1wEh0udGhlcm1vc3RhdC5DaGFuZ2VU",
+            "ZW1wUmVxdWVzdBoeLnRoZXJtb3N0YXQuQ2hhbmdlVGVtcFJlc3BvbnNlIgBi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

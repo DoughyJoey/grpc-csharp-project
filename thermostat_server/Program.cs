@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Thermostat;
+using Temp;
 
 namespace thermostat_server
 {
@@ -20,7 +20,7 @@ namespace thermostat_server
             {
                 server = new Server()
                 {
-                    Services = { ThermostatService.BindService(new ThermostatServiceImpl()) },
+                    Services = { TempService.BindService(new TempServiceImpl()) },
                     Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
                 };
 
