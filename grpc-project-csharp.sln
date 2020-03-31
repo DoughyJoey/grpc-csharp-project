@@ -5,12 +5,17 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{6E09FC02-61CE-4207-8E9D-0184B9AF7E46}"
 	ProjectSection(SolutionItems) = preProject
+		thermostat.proto = thermostat.proto
 		watch.proto = watch.proto
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{61EEBA38-BD01-4E93-B37E-343A247B6186}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{9779C5AF-271F-4B8F-8390-0EFF75555702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "thermostat_client", "thermostat_client\thermostat_client.csproj", "{80427E87-5F9A-4677-B1AB-070F3AD273E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "thermostat_server", "thermostat_server\thermostat_server.csproj", "{A16468B8-6D4B-4DF9-AAC8-91EBA241266B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +31,14 @@ Global
 		{9779C5AF-271F-4B8F-8390-0EFF75555702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9779C5AF-271F-4B8F-8390-0EFF75555702}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9779C5AF-271F-4B8F-8390-0EFF75555702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80427E87-5F9A-4677-B1AB-070F3AD273E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80427E87-5F9A-4677-B1AB-070F3AD273E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80427E87-5F9A-4677-B1AB-070F3AD273E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80427E87-5F9A-4677-B1AB-070F3AD273E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16468B8-6D4B-4DF9-AAC8-91EBA241266B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16468B8-6D4B-4DF9-AAC8-91EBA241266B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16468B8-6D4B-4DF9-AAC8-91EBA241266B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16468B8-6D4B-4DF9-AAC8-91EBA241266B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
