@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package smart_watch;
+
+
+message SleepAverageRequest {
+    int32 number = 1;
+}
+
+message SleepAverageResponse {
+    double average = 1;
+}
+
+message MaxHeartRateRequest {
+    int32 number = 1;
+}
+
+message MaxHeartRateResponse {
+    int32 maximum = 1;
+}
+
+service WatchService {
+
+    rpc SleepAverage(stream SleepAverageRequest) returns (SleepAverageResponse) {};
+
+    rpc MaxHeartRate(stream MaxHeartRateRequest) returns (stream MaxHeartRateResponse) {};
+
+}
