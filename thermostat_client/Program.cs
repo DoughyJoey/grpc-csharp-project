@@ -22,33 +22,73 @@ namespace thermostat_client
             });
 
             var client = new TempService.TempServiceClient(channel);
-            /* var response = client.SetTemp(new SetTempRequest()
+
+            // SET TEMPERATURE
+            var newTemp = SetTemp(client);
+
+            // VIEW THE CURRENT TEMPERATURE
+            ViewTemp(client);
+
+            // CHANGE THE TEMPERATURE
+            ChangeTemp(client, newTemp);
+
+            channel.ShutdownAsync().Wait();
+            Console.ReadKey();
+        }
+
+        // SET TEMPERATURE
+        private static Temp.Temp SetTemp(TempService.TempServiceClient client)
+        {
+            var response = client.SetTemp(new SetTempRequest()
             {
                 Temp = new Temp.Temp()
                 {
-                    TempSetting = "20 degrees"
+                    TempSetting = "24 degrees"
                 }
             });
 
-            Console.WriteLine("The temperature " + response.Temp.Id + " was created!");
-            Console.WriteLine("The temperature is now set to " + response.Temp.TempSetting + "!");*/
+            Console.WriteLine("The temperature has been set to " + response.Temp.TempSetting + "!");
 
+            return response.Temp;
+        }
+
+        // VIEW THE CURRENT TEMPERATURE
+        private static void ViewTemp(TempService.TempServiceClient client)
+        {
             try
             {
                 var response = client.ViewTemp(new ViewTempRequest()
                 {
                     TempId = "5e8372829a5b3c385007b6af"
-                  //TempId = "5e8372829a5b3c385007b6ah"
+                  //TempId = "5e8372829a5b3c385007b6ag"
                 });
-                Console.WriteLine(response.Temp.ToString());
+
+                Console.WriteLine("The current temperature is " + response.Temp.ToString());
             }
             catch (RpcException e)
             {
                 Console.WriteLine(e.Status.Detail);
             }
-            
-            channel.ShutdownAsync().Wait();
-            Console.ReadKey();
+        }
+
+        // CHANGE THE TEMPERATURE
+        private static void ChangeTemp(TempService.TempServiceClient client, Temp.Temp temp)
+        {
+            try
+            {
+                temp.TempSetting = "30 degrees";
+
+                var response = client.ChangeTemp(new ChangeTempRequest()
+                {
+                    Temp = temp
+                });
+
+                Console.WriteLine("The temperature has now been changed to " + response.Temp.ToString());
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine(e.Status.Detail);
+            }
         }
     }
 }

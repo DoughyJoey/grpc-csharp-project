@@ -51,5 +51,29 @@ namespace thermostat_server
 
             return new ViewTempResponse() { Temp = temp };
         }
+
+        public override async Task<ChangeTempResponse> ChangeTemp(ChangeTempRequest request, ServerCallContext context)
+        {
+            var tempId = request.Temp.Id;
+
+            var filter = new FilterDefinitionBuilder<BsonDocument>().Eq("_id", new ObjectId(tempId));
+            var result = mongoCollection.Find(filter).FirstOrDefault();
+
+            if (result == null)
+                throw new RpcException(new Status(StatusCode.NotFound, "The temp id " + tempId + " wasn't found"));
+
+            var doc = new BsonDocument("temp_setting", request.Temp.TempSetting);
+
+            mongoCollection.ReplaceOne(filter, doc);
+
+            var temp = new Temp.Temp()
+            {
+                TempSetting = doc.GetValue("temp_setting").AsString
+            };
+
+            temp.Id = tempId;
+
+            return new ChangeTempResponse() { Temp = temp };
+        }
     }
 }
