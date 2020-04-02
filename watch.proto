@@ -2,6 +2,17 @@ syntax = "proto3";
 
 package smart_watch;
 
+message CalorieRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
+    int32 third_number = 3;
+    int32 fourth_number = 4;
+    int32 fifth_number = 5;
+}
+
+message CalorieResponse {
+    int32 sum_result = 1;
+}
 
 message SleepAverageRequest {
     int32 number = 1;
@@ -21,8 +32,10 @@ message MaxHeartRateResponse {
 
 service WatchService {
 
-    rpc SleepAverage(stream SleepAverageRequest) returns (SleepAverageResponse) {};
+    rpc Calories(CalorieRequest) returns (CalorieResponse) {}; // simple
 
-    rpc MaxHeartRate(stream MaxHeartRateRequest) returns (stream MaxHeartRateResponse) {};
+    rpc SleepAverage(stream SleepAverageRequest) returns (SleepAverageResponse) {}; // client streaming
+
+    rpc MaxHeartRate(stream MaxHeartRateRequest) returns (stream MaxHeartRateResponse) {}; // bidirectional streaming
 
 }

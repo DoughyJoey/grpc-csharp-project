@@ -11,6 +11,15 @@ namespace server
 {
     public class WatchServiceImpl : WatchServiceBase
     {
+        public override Task<CalorieResponse> Calories(CalorieRequest request, ServerCallContext context)
+        {
+            int sum_result = request.FirstNumber +
+                             request.SecondNumber +
+                             request.ThirdNumber +
+                             request.FourthNumber +
+                             request.FifthNumber;
+            return Task.FromResult(new CalorieResponse() { SumResult = sum_result });
+        }
 
         public override async Task<SleepAverageResponse> SleepAverage(IAsyncStreamReader<SleepAverageRequest> requestStream, ServerCallContext context)
         {

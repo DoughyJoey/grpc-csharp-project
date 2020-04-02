@@ -12,10 +12,19 @@ namespace SmartWatch {
   {
     static readonly string __ServiceName = "smart_watch.WatchService";
 
+    static readonly grpc::Marshaller<global::SmartWatch.CalorieRequest> __Marshaller_smart_watch_CalorieRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.CalorieRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::SmartWatch.CalorieResponse> __Marshaller_smart_watch_CalorieResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.CalorieResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::SmartWatch.SleepAverageRequest> __Marshaller_smart_watch_SleepAverageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.SleepAverageRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::SmartWatch.SleepAverageResponse> __Marshaller_smart_watch_SleepAverageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.SleepAverageResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::SmartWatch.MaxHeartRateRequest> __Marshaller_smart_watch_MaxHeartRateRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.MaxHeartRateRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::SmartWatch.MaxHeartRateResponse> __Marshaller_smart_watch_MaxHeartRateResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::SmartWatch.MaxHeartRateResponse.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::SmartWatch.CalorieRequest, global::SmartWatch.CalorieResponse> __Method_Calories = new grpc::Method<global::SmartWatch.CalorieRequest, global::SmartWatch.CalorieResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Calories",
+        __Marshaller_smart_watch_CalorieRequest,
+        __Marshaller_smart_watch_CalorieResponse);
 
     static readonly grpc::Method<global::SmartWatch.SleepAverageRequest, global::SmartWatch.SleepAverageResponse> __Method_SleepAverage = new grpc::Method<global::SmartWatch.SleepAverageRequest, global::SmartWatch.SleepAverageResponse>(
         grpc::MethodType.ClientStreaming,
@@ -41,6 +50,11 @@ namespace SmartWatch {
     [grpc::BindServiceMethod(typeof(WatchService), "BindService")]
     public abstract partial class WatchServiceBase
     {
+      public virtual global::System.Threading.Tasks.Task<global::SmartWatch.CalorieResponse> Calories(global::SmartWatch.CalorieRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       public virtual global::System.Threading.Tasks.Task<global::SmartWatch.SleepAverageResponse> SleepAverage(grpc::IAsyncStreamReader<global::SmartWatch.SleepAverageRequest> requestStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -76,6 +90,22 @@ namespace SmartWatch {
       {
       }
 
+      public virtual global::SmartWatch.CalorieResponse Calories(global::SmartWatch.CalorieRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Calories(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::SmartWatch.CalorieResponse Calories(global::SmartWatch.CalorieRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Calories, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::SmartWatch.CalorieResponse> CaloriesAsync(global::SmartWatch.CalorieRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CaloriesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::SmartWatch.CalorieResponse> CaloriesAsync(global::SmartWatch.CalorieRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Calories, null, options, request);
+      }
       public virtual grpc::AsyncClientStreamingCall<global::SmartWatch.SleepAverageRequest, global::SmartWatch.SleepAverageResponse> SleepAverage(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SleepAverage(new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -104,6 +134,7 @@ namespace SmartWatch {
     public static grpc::ServerServiceDefinition BindService(WatchServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_Calories, serviceImpl.Calories)
           .AddMethod(__Method_SleepAverage, serviceImpl.SleepAverage)
           .AddMethod(__Method_MaxHeartRate, serviceImpl.MaxHeartRate).Build();
     }
@@ -114,6 +145,7 @@ namespace SmartWatch {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, WatchServiceBase serviceImpl)
     {
+      serviceBinder.AddMethod(__Method_Calories, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::SmartWatch.CalorieRequest, global::SmartWatch.CalorieResponse>(serviceImpl.Calories));
       serviceBinder.AddMethod(__Method_SleepAverage, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::SmartWatch.SleepAverageRequest, global::SmartWatch.SleepAverageResponse>(serviceImpl.SleepAverage));
       serviceBinder.AddMethod(__Method_MaxHeartRate, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::SmartWatch.MaxHeartRateRequest, global::SmartWatch.MaxHeartRateResponse>(serviceImpl.MaxHeartRate));
     }

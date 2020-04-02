@@ -22,19 +22,39 @@ namespace client
                     Console.WriteLine("The client connected successfully");
             });
 
-            var client = new WatchService.WatchServiceClient(channel);
-            var stream = client.SleepAverage();
+            // CALORIES
+            var calorieClient = new WatchService.WatchServiceClient(channel);
+
+            var calorieRequest = new CalorieRequest()
+            {
+                FirstNumber = 2453,
+                SecondNumber = 1710,
+                ThirdNumber = 2300,
+                FourthNumber = 1943,
+                FifthNumber = 1856
+            };
+
+            var calorieResponse = calorieClient.Calories(calorieRequest);
+
+            Console.WriteLine("Your total number of calories this week is: " + calorieResponse.SumResult);
+
+            //channel.ShutdownAsync().Wait();
+            //Console.ReadKey();
+
+            // AVERAGE SLEEP
+            var sleepClient = new WatchService.WatchServiceClient(channel);
+            var sleepStream = sleepClient.SleepAverage();
 
             foreach (int number in Enumerable.Range(6, 8))
             {
-                var request = new SleepAverageRequest() { Number = number };
+                var sleepRequest = new SleepAverageRequest() { Number = number };
 
-                await stream.RequestStream.WriteAsync(request);
+                await sleepStream.RequestStream.WriteAsync(sleepRequest);
             }
 
-            await stream.RequestStream.CompleteAsync();
+            await sleepStream.RequestStream.CompleteAsync();
 
-            var response = await stream.ResponseAsync;
+            var response = await sleepStream.ResponseAsync;
 
             Console.WriteLine("Your average sleep this week is: " + response.Average + " hrs");
 
@@ -43,23 +63,23 @@ namespace client
 
 
             // MAX HEART RATE
-            var client2 = new WatchService.WatchServiceClient(channel);
-            var stream2 = client.MaxHeartRate();
+            var maxHeartClient = new WatchService.WatchServiceClient(channel);
+            var maxHeartStream = maxHeartClient.MaxHeartRate();
 
             var responseReaderTask = Task.Run(async () =>
             {
-                while (await stream2.ResponseStream.MoveNext())
-                    Console.WriteLine("Your current heart rate is: " + stream2.ResponseStream.Current.Maximum);
+                while (await maxHeartStream.ResponseStream.MoveNext())
+                    Console.WriteLine("Your current heart rate is: " + maxHeartStream.ResponseStream.Current.Maximum);
             });
 
             int[] numbers = { 66, 77, 73, 87, 91, 101 };
 
             foreach (var number in numbers)
             {
-                await stream2.RequestStream.WriteAsync(new MaxHeartRateRequest() { Number = number });
+                await maxHeartStream.RequestStream.WriteAsync(new MaxHeartRateRequest() { Number = number });
             }
 
-            await stream2.RequestStream.CompleteAsync();
+            await maxHeartStream.RequestStream.CompleteAsync();
             await responseReaderTask;
 
             channel.ShutdownAsync().Wait();

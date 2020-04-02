@@ -24,18 +24,26 @@ namespace SmartWatch {
     static WatchReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgt3YXRjaC5wcm90bxILc21hcnRfd2F0Y2giJQoTU2xlZXBBdmVyYWdlUmVx",
-            "dWVzdBIOCgZudW1iZXIYASABKAUiJwoUU2xlZXBBdmVyYWdlUmVzcG9uc2US",
-            "DwoHYXZlcmFnZRgBIAEoASIlChNNYXhIZWFydFJhdGVSZXF1ZXN0Eg4KBm51",
-            "bWJlchgBIAEoBSInChRNYXhIZWFydFJhdGVSZXNwb25zZRIPCgdtYXhpbXVt",
-            "GAEgASgFMsIBCgxXYXRjaFNlcnZpY2USVwoMU2xlZXBBdmVyYWdlEiAuc21h",
-            "cnRfd2F0Y2guU2xlZXBBdmVyYWdlUmVxdWVzdBohLnNtYXJ0X3dhdGNoLlNs",
-            "ZWVwQXZlcmFnZVJlc3BvbnNlIgAoARJZCgxNYXhIZWFydFJhdGUSIC5zbWFy",
-            "dF93YXRjaC5NYXhIZWFydFJhdGVSZXF1ZXN0GiEuc21hcnRfd2F0Y2guTWF4",
-            "SGVhcnRSYXRlUmVzcG9uc2UiACgBMAFiBnByb3RvMw=="));
+            "Cgt3YXRjaC5wcm90bxILc21hcnRfd2F0Y2gigAEKDkNhbG9yaWVSZXF1ZXN0",
+            "EhQKDGZpcnN0X251bWJlchgBIAEoBRIVCg1zZWNvbmRfbnVtYmVyGAIgASgF",
+            "EhQKDHRoaXJkX251bWJlchgDIAEoBRIVCg1mb3VydGhfbnVtYmVyGAQgASgF",
+            "EhQKDGZpZnRoX251bWJlchgFIAEoBSIlCg9DYWxvcmllUmVzcG9uc2USEgoK",
+            "c3VtX3Jlc3VsdBgBIAEoBSIlChNTbGVlcEF2ZXJhZ2VSZXF1ZXN0Eg4KBm51",
+            "bWJlchgBIAEoBSInChRTbGVlcEF2ZXJhZ2VSZXNwb25zZRIPCgdhdmVyYWdl",
+            "GAEgASgBIiUKE01heEhlYXJ0UmF0ZVJlcXVlc3QSDgoGbnVtYmVyGAEgASgF",
+            "IicKFE1heEhlYXJ0UmF0ZVJlc3BvbnNlEg8KB21heGltdW0YASABKAUyiwIK",
+            "DFdhdGNoU2VydmljZRJHCghDYWxvcmllcxIbLnNtYXJ0X3dhdGNoLkNhbG9y",
+            "aWVSZXF1ZXN0Ghwuc21hcnRfd2F0Y2guQ2Fsb3JpZVJlc3BvbnNlIgASVwoM",
+            "U2xlZXBBdmVyYWdlEiAuc21hcnRfd2F0Y2guU2xlZXBBdmVyYWdlUmVxdWVz",
+            "dBohLnNtYXJ0X3dhdGNoLlNsZWVwQXZlcmFnZVJlc3BvbnNlIgAoARJZCgxN",
+            "YXhIZWFydFJhdGUSIC5zbWFydF93YXRjaC5NYXhIZWFydFJhdGVSZXF1ZXN0",
+            "GiEuc21hcnRfd2F0Y2guTWF4SGVhcnRSYXRlUmVzcG9uc2UiACgBMAFiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::SmartWatch.CalorieRequest), global::SmartWatch.CalorieRequest.Parser, new[]{ "FirstNumber", "SecondNumber", "ThirdNumber", "FourthNumber", "FifthNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::SmartWatch.CalorieResponse), global::SmartWatch.CalorieResponse.Parser, new[]{ "SumResult" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SmartWatch.SleepAverageRequest), global::SmartWatch.SleepAverageRequest.Parser, new[]{ "Number" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SmartWatch.SleepAverageResponse), global::SmartWatch.SleepAverageResponse.Parser, new[]{ "Average" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::SmartWatch.MaxHeartRateRequest), global::SmartWatch.MaxHeartRateRequest.Parser, new[]{ "Number" }, null, null, null, null),
@@ -46,6 +54,376 @@ namespace SmartWatch {
 
   }
   #region Messages
+  public sealed partial class CalorieRequest : pb::IMessage<CalorieRequest> {
+    private static readonly pb::MessageParser<CalorieRequest> _parser = new pb::MessageParser<CalorieRequest>(() => new CalorieRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CalorieRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieRequest(CalorieRequest other) : this() {
+      firstNumber_ = other.firstNumber_;
+      secondNumber_ = other.secondNumber_;
+      thirdNumber_ = other.thirdNumber_;
+      fourthNumber_ = other.fourthNumber_;
+      fifthNumber_ = other.fifthNumber_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieRequest Clone() {
+      return new CalorieRequest(this);
+    }
+
+    /// <summary>Field number for the "first_number" field.</summary>
+    public const int FirstNumberFieldNumber = 1;
+    private int firstNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FirstNumber {
+      get { return firstNumber_; }
+      set {
+        firstNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "second_number" field.</summary>
+    public const int SecondNumberFieldNumber = 2;
+    private int secondNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SecondNumber {
+      get { return secondNumber_; }
+      set {
+        secondNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "third_number" field.</summary>
+    public const int ThirdNumberFieldNumber = 3;
+    private int thirdNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ThirdNumber {
+      get { return thirdNumber_; }
+      set {
+        thirdNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fourth_number" field.</summary>
+    public const int FourthNumberFieldNumber = 4;
+    private int fourthNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FourthNumber {
+      get { return fourthNumber_; }
+      set {
+        fourthNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fifth_number" field.</summary>
+    public const int FifthNumberFieldNumber = 5;
+    private int fifthNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int FifthNumber {
+      get { return fifthNumber_; }
+      set {
+        fifthNumber_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CalorieRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CalorieRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (FirstNumber != other.FirstNumber) return false;
+      if (SecondNumber != other.SecondNumber) return false;
+      if (ThirdNumber != other.ThirdNumber) return false;
+      if (FourthNumber != other.FourthNumber) return false;
+      if (FifthNumber != other.FifthNumber) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (FirstNumber != 0) hash ^= FirstNumber.GetHashCode();
+      if (SecondNumber != 0) hash ^= SecondNumber.GetHashCode();
+      if (ThirdNumber != 0) hash ^= ThirdNumber.GetHashCode();
+      if (FourthNumber != 0) hash ^= FourthNumber.GetHashCode();
+      if (FifthNumber != 0) hash ^= FifthNumber.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (FirstNumber != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(FirstNumber);
+      }
+      if (SecondNumber != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(SecondNumber);
+      }
+      if (ThirdNumber != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(ThirdNumber);
+      }
+      if (FourthNumber != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(FourthNumber);
+      }
+      if (FifthNumber != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(FifthNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (FirstNumber != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FirstNumber);
+      }
+      if (SecondNumber != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SecondNumber);
+      }
+      if (ThirdNumber != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ThirdNumber);
+      }
+      if (FourthNumber != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FourthNumber);
+      }
+      if (FifthNumber != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FifthNumber);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CalorieRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.FirstNumber != 0) {
+        FirstNumber = other.FirstNumber;
+      }
+      if (other.SecondNumber != 0) {
+        SecondNumber = other.SecondNumber;
+      }
+      if (other.ThirdNumber != 0) {
+        ThirdNumber = other.ThirdNumber;
+      }
+      if (other.FourthNumber != 0) {
+        FourthNumber = other.FourthNumber;
+      }
+      if (other.FifthNumber != 0) {
+        FifthNumber = other.FifthNumber;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            FirstNumber = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            SecondNumber = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            ThirdNumber = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            FourthNumber = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            FifthNumber = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CalorieResponse : pb::IMessage<CalorieResponse> {
+    private static readonly pb::MessageParser<CalorieResponse> _parser = new pb::MessageParser<CalorieResponse>(() => new CalorieResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CalorieResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieResponse(CalorieResponse other) : this() {
+      sumResult_ = other.sumResult_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CalorieResponse Clone() {
+      return new CalorieResponse(this);
+    }
+
+    /// <summary>Field number for the "sum_result" field.</summary>
+    public const int SumResultFieldNumber = 1;
+    private int sumResult_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SumResult {
+      get { return sumResult_; }
+      set {
+        sumResult_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CalorieResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CalorieResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SumResult != other.SumResult) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SumResult != 0) hash ^= SumResult.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SumResult != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(SumResult);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SumResult != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SumResult);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CalorieResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SumResult != 0) {
+        SumResult = other.SumResult;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SumResult = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class SleepAverageRequest : pb::IMessage<SleepAverageRequest> {
     private static readonly pb::MessageParser<SleepAverageRequest> _parser = new pb::MessageParser<SleepAverageRequest>(() => new SleepAverageRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -54,7 +432,7 @@ namespace SmartWatch {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[0]; }
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -183,7 +561,7 @@ namespace SmartWatch {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[1]; }
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -312,7 +690,7 @@ namespace SmartWatch {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[2]; }
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -441,7 +819,7 @@ namespace SmartWatch {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[3]; }
+      get { return global::SmartWatch.WatchReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
