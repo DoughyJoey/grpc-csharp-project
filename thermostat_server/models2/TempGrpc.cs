@@ -18,6 +18,8 @@ namespace Temp {
     static readonly grpc::Marshaller<global::Temp.ViewTempResponse> __Marshaller_temp_ViewTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Temp.ViewTempResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Temp.ChangeTempRequest> __Marshaller_temp_ChangeTempRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Temp.ChangeTempRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Temp.ChangeTempResponse> __Marshaller_temp_ChangeTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Temp.ChangeTempResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Temp.ViewAllTempRequest> __Marshaller_temp_ViewAllTempRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Temp.ViewAllTempRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Temp.ViewAllTempResponse> __Marshaller_temp_ViewAllTempResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Temp.ViewAllTempResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Temp.SetTempRequest, global::Temp.SetTempResponse> __Method_SetTemp = new grpc::Method<global::Temp.SetTempRequest, global::Temp.SetTempResponse>(
         grpc::MethodType.Unary,
@@ -40,6 +42,13 @@ namespace Temp {
         __Marshaller_temp_ChangeTempRequest,
         __Marshaller_temp_ChangeTempResponse);
 
+    static readonly grpc::Method<global::Temp.ViewAllTempRequest, global::Temp.ViewAllTempResponse> __Method_ViewAllTemp = new grpc::Method<global::Temp.ViewAllTempRequest, global::Temp.ViewAllTempResponse>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "ViewAllTemp",
+        __Marshaller_temp_ViewAllTempRequest,
+        __Marshaller_temp_ViewAllTempResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -61,6 +70,11 @@ namespace Temp {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Temp.ChangeTempResponse> ChangeTemp(global::Temp.ChangeTempRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task ViewAllTemp(global::Temp.ViewAllTempRequest request, grpc::IServerStreamWriter<global::Temp.ViewAllTempResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -138,6 +152,14 @@ namespace Temp {
       {
         return CallInvoker.AsyncUnaryCall(__Method_ChangeTemp, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Temp.ViewAllTempResponse> ViewAllTemp(global::Temp.ViewAllTempRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ViewAllTemp(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Temp.ViewAllTempResponse> ViewAllTemp(global::Temp.ViewAllTempRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_ViewAllTemp, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override TempServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -152,7 +174,8 @@ namespace Temp {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SetTemp, serviceImpl.SetTemp)
           .AddMethod(__Method_ViewTemp, serviceImpl.ViewTemp)
-          .AddMethod(__Method_ChangeTemp, serviceImpl.ChangeTemp).Build();
+          .AddMethod(__Method_ChangeTemp, serviceImpl.ChangeTemp)
+          .AddMethod(__Method_ViewAllTemp, serviceImpl.ViewAllTemp).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -164,6 +187,7 @@ namespace Temp {
       serviceBinder.AddMethod(__Method_SetTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Temp.SetTempRequest, global::Temp.SetTempResponse>(serviceImpl.SetTemp));
       serviceBinder.AddMethod(__Method_ViewTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Temp.ViewTempRequest, global::Temp.ViewTempResponse>(serviceImpl.ViewTemp));
       serviceBinder.AddMethod(__Method_ChangeTemp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Temp.ChangeTempRequest, global::Temp.ChangeTempResponse>(serviceImpl.ChangeTemp));
+      serviceBinder.AddMethod(__Method_ViewAllTemp, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Temp.ViewAllTempRequest, global::Temp.ViewAllTempResponse>(serviceImpl.ViewAllTemp));
     }
 
   }

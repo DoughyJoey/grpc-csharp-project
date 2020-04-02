@@ -32,6 +32,9 @@ namespace thermostat_client
             // CHANGE THE TEMPERATURE
             ChangeTemp(client, newTemp);
 
+            // VIEW ALL TEMPERATURES IN THE DATABASE
+            await ViewAllTemp(client);
+
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
         }
@@ -88,6 +91,17 @@ namespace thermostat_client
             catch (RpcException e)
             {
                 Console.WriteLine(e.Status.Detail);
+            }
+        }
+
+        // VIEW ALL TEMPERATURES
+        private static async Task ViewAllTemp(TempService.TempServiceClient client)
+        {
+            var response = client.ViewAllTemp(new ViewAllTempRequest() { });
+
+            while (await response.ResponseStream.MoveNext())
+            {
+                Console.WriteLine(response.ResponseStream.Current.Temp.ToString());
             }
         }
     }

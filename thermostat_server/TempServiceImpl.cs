@@ -75,5 +75,24 @@ namespace thermostat_server
 
             return new ChangeTempResponse() { Temp = temp };
         }
+
+        public override async Task ViewAllTemp(ViewAllTempRequest request, IServerStreamWriter<ViewAllTempResponse> responseStream, ServerCallContext context)
+        {
+            var filter = new FilterDefinitionBuilder<BsonDocument>().Empty;
+
+            var result = mongoCollection.Find(filter);
+
+            foreach (var item in result.ToList())
+            {
+                await responseStream.WriteAsync(new ViewAllTempResponse()
+                {
+                    Temp = new Temp.Temp()
+                    {
+                        Id = item.GetValue("_id").ToString(),
+                        TempSetting = item.GetValue("temp_setting").AsString
+                    }
+                });
+            }
+        }
     }
 }

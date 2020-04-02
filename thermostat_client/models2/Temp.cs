@@ -31,11 +31,15 @@ namespace Temp {
             "ASABKAkiLAoQVmlld1RlbXBSZXNwb25zZRIYCgR0ZW1wGAEgASgLMgoudGVt",
             "cC5UZW1wIi0KEUNoYW5nZVRlbXBSZXF1ZXN0EhgKBHRlbXAYASABKAsyCi50",
             "ZW1wLlRlbXAiLgoSQ2hhbmdlVGVtcFJlc3BvbnNlEhgKBHRlbXAYASABKAsy",
-            "Ci50ZW1wLlRlbXAyxwEKC1RlbXBTZXJ2aWNlEjgKB1NldFRlbXASFC50ZW1w",
-            "LlNldFRlbXBSZXF1ZXN0GhUudGVtcC5TZXRUZW1wUmVzcG9uc2UiABI7CghW",
-            "aWV3VGVtcBIVLnRlbXAuVmlld1RlbXBSZXF1ZXN0GhYudGVtcC5WaWV3VGVt",
-            "cFJlc3BvbnNlIgASQQoKQ2hhbmdlVGVtcBIXLnRlbXAuQ2hhbmdlVGVtcFJl",
-            "cXVlc3QaGC50ZW1wLkNoYW5nZVRlbXBSZXNwb25zZSIAYgZwcm90bzM="));
+            "Ci50ZW1wLlRlbXAiFAoSVmlld0FsbFRlbXBSZXF1ZXN0Ii8KE1ZpZXdBbGxU",
+            "ZW1wUmVzcG9uc2USGAoEdGVtcBgBIAEoCzIKLnRlbXAuVGVtcDKPAgoLVGVt",
+            "cFNlcnZpY2USOAoHU2V0VGVtcBIULnRlbXAuU2V0VGVtcFJlcXVlc3QaFS50",
+            "ZW1wLlNldFRlbXBSZXNwb25zZSIAEjsKCFZpZXdUZW1wEhUudGVtcC5WaWV3",
+            "VGVtcFJlcXVlc3QaFi50ZW1wLlZpZXdUZW1wUmVzcG9uc2UiABJBCgpDaGFu",
+            "Z2VUZW1wEhcudGVtcC5DaGFuZ2VUZW1wUmVxdWVzdBoYLnRlbXAuQ2hhbmdl",
+            "VGVtcFJlc3BvbnNlIgASRgoLVmlld0FsbFRlbXASGC50ZW1wLlZpZXdBbGxU",
+            "ZW1wUmVxdWVzdBoZLnRlbXAuVmlld0FsbFRlbXBSZXNwb25zZSIAMAFiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -45,7 +49,9 @@ namespace Temp {
             new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ViewTempRequest), global::Temp.ViewTempRequest.Parser, new[]{ "TempId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ViewTempResponse), global::Temp.ViewTempResponse.Parser, new[]{ "Temp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ChangeTempRequest), global::Temp.ChangeTempRequest.Parser, new[]{ "Temp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ChangeTempResponse), global::Temp.ChangeTempResponse.Parser, new[]{ "Temp" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ChangeTempResponse), global::Temp.ChangeTempResponse.Parser, new[]{ "Temp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ViewAllTempRequest), global::Temp.ViewAllTempRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Temp.ViewAllTempResponse), global::Temp.ViewAllTempResponse.Parser, new[]{ "Temp" }, null, null, null, null)
           }));
     }
     #endregion
@@ -986,6 +992,242 @@ namespace Temp {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(ChangeTempResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.temp_ != null) {
+        if (temp_ == null) {
+          Temp = new global::Temp.Temp();
+        }
+        Temp.MergeFrom(other.Temp);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (temp_ == null) {
+              Temp = new global::Temp.Temp();
+            }
+            input.ReadMessage(Temp);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ViewAllTempRequest : pb::IMessage<ViewAllTempRequest> {
+    private static readonly pb::MessageParser<ViewAllTempRequest> _parser = new pb::MessageParser<ViewAllTempRequest>(() => new ViewAllTempRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ViewAllTempRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Temp.TempReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempRequest(ViewAllTempRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempRequest Clone() {
+      return new ViewAllTempRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ViewAllTempRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ViewAllTempRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ViewAllTempRequest other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ViewAllTempResponse : pb::IMessage<ViewAllTempResponse> {
+    private static readonly pb::MessageParser<ViewAllTempResponse> _parser = new pb::MessageParser<ViewAllTempResponse>(() => new ViewAllTempResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ViewAllTempResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Temp.TempReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempResponse(ViewAllTempResponse other) : this() {
+      temp_ = other.temp_ != null ? other.temp_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ViewAllTempResponse Clone() {
+      return new ViewAllTempResponse(this);
+    }
+
+    /// <summary>Field number for the "temp" field.</summary>
+    public const int TempFieldNumber = 1;
+    private global::Temp.Temp temp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Temp.Temp Temp {
+      get { return temp_; }
+      set {
+        temp_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ViewAllTempResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ViewAllTempResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Temp, other.Temp)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (temp_ != null) hash ^= Temp.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (temp_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Temp);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (temp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Temp);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ViewAllTempResponse other) {
       if (other == null) {
         return;
       }

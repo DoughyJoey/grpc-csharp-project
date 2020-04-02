@@ -7,6 +7,7 @@ service TempService {
 	rpc SetTemp (SetTempRequest) returns (SetTempResponse) {}
 	rpc ViewTemp (ViewTempRequest) returns (ViewTempResponse) {}
 	rpc ChangeTemp (ChangeTempRequest) returns (ChangeTempResponse) {}
+	rpc ViewAllTemp (ViewAllTempRequest) returns (stream ViewAllTempResponse) {}
 }
 
 message Temp {
@@ -35,5 +36,13 @@ message ChangeTempRequest {
 }
 
 message ChangeTempResponse {
+	Temp temp = 1;
+}
+
+message ViewAllTempRequest {
+
+}
+
+message ViewAllTempResponse {
 	Temp temp = 1;
 }
