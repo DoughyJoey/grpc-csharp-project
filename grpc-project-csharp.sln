@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{6E09FC02
 		watch.proto = watch.proto
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{61EEBA38-BD01-4E93-B37E-343A247B6186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "watch_client", "client\watch_client.csproj", "{61EEBA38-BD01-4E93-B37E-343A247B6186}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{9779C5AF-271F-4B8F-8390-0EFF75555702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "watch_server", "server\watch_server.csproj", "{9779C5AF-271F-4B8F-8390-0EFF75555702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "thermostat_client", "thermostat_client\thermostat_client.csproj", "{A6285748-1311-47DD-A3B8-4FD3ACA6D605}"
 EndProject
