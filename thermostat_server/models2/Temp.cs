@@ -215,6 +215,9 @@ namespace Temp {
 
   }
 
+  /// <summary>
+  /// SET TEMPERATURE
+  /// </summary>
   public sealed partial class SetTempRequest : pb::IMessage<SetTempRequest> {
     private static readonly pb::MessageParser<SetTempRequest> _parser = new pb::MessageParser<SetTempRequest>(() => new SetTempRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -491,6 +494,9 @@ namespace Temp {
 
   }
 
+  /// <summary>
+  /// VIEW TEMPERATURE
+  /// </summary>
   public sealed partial class ViewTempRequest : pb::IMessage<ViewTempRequest> {
     private static readonly pb::MessageParser<ViewTempRequest> _parser = new pb::MessageParser<ViewTempRequest>(() => new ViewTempRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -755,6 +761,9 @@ namespace Temp {
 
   }
 
+  /// <summary>
+  ///CHANGE TEMPERATURE
+  /// </summary>
   public sealed partial class ChangeTempRequest : pb::IMessage<ChangeTempRequest> {
     private static readonly pb::MessageParser<ChangeTempRequest> _parser = new pb::MessageParser<ChangeTempRequest>(() => new ChangeTempRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -1025,6 +1034,9 @@ namespace Temp {
 
   }
 
+  /// <summary>
+  ///VIEW ALL TEMPERATURES
+  /// </summary>
   public sealed partial class ViewAllTempRequest : pb::IMessage<ViewAllTempRequest> {
     private static readonly pb::MessageParser<ViewAllTempRequest> _parser = new pb::MessageParser<ViewAllTempRequest>(() => new ViewAllTempRequest());
     private pb::UnknownFieldSet _unknownFields;

@@ -3,18 +3,12 @@ syntax = "proto3";
 package temp;
 
 
-service TempService {
-	rpc SetTemp (SetTempRequest) returns (SetTempResponse) {}
-	rpc ViewTemp (ViewTempRequest) returns (ViewTempResponse) {}
-	rpc ChangeTemp (ChangeTempRequest) returns (ChangeTempResponse) {}
-	rpc ViewAllTemp (ViewAllTempRequest) returns (stream ViewAllTempResponse) {}
-}
-
 message Temp {
 	string id = 1;
 	string temp_setting = 2;
 }
 
+// SET TEMPERATURE
 message SetTempRequest {
 	Temp temp = 1; // will not contain an id
 }
@@ -23,6 +17,7 @@ message SetTempResponse {
 	Temp temp = 1; // will contain an id
 }
 
+// VIEW TEMPERATURE
 message ViewTempRequest {
 	string temp_id = 1;
 }
@@ -31,6 +26,7 @@ message ViewTempResponse {
 	Temp temp = 1;
 }
 
+//CHANGE TEMPERATURE
 message ChangeTempRequest {
 	Temp temp = 1;
 }
@@ -39,10 +35,18 @@ message ChangeTempResponse {
 	Temp temp = 1;
 }
 
+//VIEW ALL TEMPERATURES
 message ViewAllTempRequest {
 
 }
 
 message ViewAllTempResponse {
 	Temp temp = 1;
+}
+
+service TempService {
+	rpc SetTemp (SetTempRequest) returns (SetTempResponse) {}
+	rpc ViewTemp (ViewTempRequest) returns (ViewTempResponse) {}
+	rpc ChangeTemp (ChangeTempRequest) returns (ChangeTempResponse) {}
+	rpc ViewAllTemp (ViewAllTempRequest) returns (stream ViewAllTempResponse) {} // SERVER STREAMING
 }
